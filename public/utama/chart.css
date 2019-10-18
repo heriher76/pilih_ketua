@@ -1,0 +1,16 @@
+.chart-rt {
+  width: 100%;
+  text-align: center;
+
+}
+.chart-rw {
+  width: 100%;
+  text-align: center;
+
+}
+div p {
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #bdc3c7;
+}

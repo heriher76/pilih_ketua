@@ -1,0 +1,137 @@
+header{
+	height: 50px;
+	background-color: black;
+
+}
+
+.view_prof{
+	height: 500px;
+}
+.bio {
+	background-color: rgba(0,3,1,0.25);
+	border-radius: 15px;
+	margin-top: 15px;
+	padding: 1px;
+
+}
+.bio h6{
+	font-size: 20px;
+	color: white;
+}
+.biot  h5{
+	color: white;
+}
+.biot h6 {
+	color: white;
+	
+}
+.nav-item {
+
+	font-size: 20px;
+	margin-right: 20px;
+	color: white;
+
+}
+.navbar{
+
+	padding: 5px;
+}
+.p-rt{
+	margin-bottom: 2px;
+	margin-top: 1px;
+}
+
+.main{
+	background-color: orange;
+	min-height: ;
+	padding-top: 13px;
+	padding-bottom: 5px;
+}
+
+.title{
+	background-color: rgba(0,3,1,0.25);
+	padding: 15px 0px 3px 20px;
+}
+.main p{
+	font-size: 25px;
+	font-weight: bold;
+	
+}
+.m-profile{
+	padding-bottom: 60px;
+}
+.RT {
+	padding: 5px 10px 5px 10px;
+	margin-left: 70px;
+}
+.main-section{
+	background-color: orange;
+	height: 130%;
+
+}
+.main-jari{
+	background-color: orange;
+	height: auto;
+}
+
+.pilih{
+	font-size: 22px;
+	font-weight: bold;
+	background: black;
+	border-radius: 13px;
+	width: 100px;
+	margin-top: 8px;
+	padding: 5px;
+}
+.lanjut{
+	font-size: 22px;
+	font-weight: bold;
+	border-radius: 13px;
+	padding: 5px 20px 5px 20px;
+	background: green;
+	visibility: hidden;
+	
+
+}
+.thank{
+	text-align: center;
+	padding: 200px 0px;
+
+}
+.rw{
+	display: none;
+}
+
+.selesai{
+	font-size: 22px;
+	font-weight: bold;
+	background: black;
+	border-radius: 13px;
+	width: 100px;
+	margin-top: 8px;
+	padding: 5px;
+}
+.lihat{
+	font-size: 25px;
+	font-weight: bold;
+	background: black;
+	border-radius: 13px;
+	width: 170px;
+	margin-top: 8px;
+	padding: 4px;
+}
+.hilang{
+	display: none;
+}
+.m-chart{
+
+}
+.thank p {
+	font-size: 40px;
+}
+
+
+
+footer{
+	
+}
