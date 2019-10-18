@@ -26,8 +26,8 @@ Route::post('/home/logout', 'UtamaController@store');
 
 Route::get('/rekapitulasi', 'UtamaController@rekap');
 
-Route::get('/profile', 'UtamaController@profile');
-Route::get('/profile/calon/{id}', 'UtamaController@show');
+Route::get('/info', 'UtamaController@profile');
+Route::get('/info/calon/{id}', 'UtamaController@show');
 
 // Route::post('/loginPost', 'Auth\LoginPemilihController@loginPost');
 Route::post('/registerPost', 'Auth\LoginPemilihController@registerPost');

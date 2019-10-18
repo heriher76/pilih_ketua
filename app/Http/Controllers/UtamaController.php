@@ -15,8 +15,8 @@ use App\Logged;
 class UtamaController extends Controller
 {   	
     public function profile(){
-        $suara = suara::all();
-        return view('utama.profile',compact('suara'));
+        $calons = Calon::all();
+        return view('utama.profile',compact('calons'));
     }
     public function rekap(){
             $rt = suara::where('calon','rt')->get();
