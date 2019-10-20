@@ -10,4 +10,9 @@ class Calon extends Model
        protected $fillable = [
        'nama', 'email', 'gender','ttl','status','pekerjaan','umur', 'foto','umur','visi','misi','verif_calon'
     ];
+
+    public function getManyPemilih()
+    {
+        return $this->hasMany('App\Pemilih');
+    }
 }

@@ -24,17 +24,17 @@
 
 			<div class="col-8">
 				<h1>{{$calon->nama}}</h1>
-				<h1>{{$calon->email}}</h1>
+				<h2>{{$calon->email}}</h2>
 				<div class="biot" style="height: 100px;background-color: rgba(0,3,1,0.25);border-radius: 15px;padding: 6px;">
 					<h5> Visi : </h5>
 					
-						<h5 style="text-align: center;">"{{$calon->visi}}"</h5>
+						<h5 style="text-align: center;">"{!!$calon->visi!!}"</h5>
 					
 				</div>
 				<br>
 				<div class="biot"  style="height: 200px;background-color: rgba(0,3,1,0.25);border-radius: 15px;padding: 6px;">
 					<h5>Misi : </h5>
-					<h6 class="misi">{!!$calon->misi!!}</h6>
+					<h6 class="misi" style="white-space: pre-line">{!!$calon->misi!!}</h6>
 				</div>
 					
 			</div>

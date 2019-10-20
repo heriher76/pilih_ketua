@@ -16,8 +16,7 @@
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-          <a href="/admin/pemilih/create"><button class="btn btn-primary"><i class="fas fa-plus"></i>
-            Tambah Pemilih</button></a>
+            <h2>List Pemilih</h2>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -25,39 +24,37 @@
                 <thead>
                   <tr>
                     <td>No</td>
-                    <th>NIK</th>
                     <th>Nama</th>
+                    <th>Email</th>
                     <th>Jenis Kelamin</th>
                     <th>Alamat</th>
-                    <th>RT</th>
-                    <th>RW</th>
-                    <th>Kelurahan</th>
-                    <th >Action</th>
+                    <th>Status</th>
+                    <th>Pekerjaan</th>
+                    <th>Pemilihan</th>
+                    <th>Action</th>
                     
                   </tr>
                 </thead>
                 
                 <tbody>
 
-                @foreach($tabel as $item)
+                @foreach($tabel as $key => $item)
                   <tr>  
-                    <td>{{$loop -> iteration}}</td>
-                    <td>{{$item->nik}}</td>
+                    <td>{{$key+1}}</td>
                     <td>{{$item->nama}}</td>
+                    <td>{{$item->email}}</td>
                     <td>{{$item->jenis_kelamin}}</td>
-                     <td>{{$item->alamat}}</td>
-                      <td>{{$item->getRt->nama}}</td>
-                      <td>{{$item->getRt->getRw->nama}}</td>
-                      <td>{{$item->getRt->getRw->getKel->nama}}</td>
-                    
+                    <td>{{$item->alamat}}</td>
+                    <td>{{$item->agama}}</td>
+                    <td>{{$item->status}}</td>
+                    <td>@if ($item->selesai_milih) Selesai @else Belum Milih @endif</td>
                     <td>
-                      <a href="/admin/pemilih/view/{{$item->id}}"><button class="btn btn-info">Lihat</button></a>
-                      <a href="/admin/pemilih/edit/{{$item->id}}"><button class="btn btn-warning">Ubah</button></a>
-                      <form action="/admin/pemilih/delete/{{$item->id}}"  style="display: inline;" method="post">
+                      <a href="{{ url('/admin/pemilih/edit/'.$item->id) }}"><button class="btn btn-warning">Ubah</button></a>
+                      <form action="{{ url('/admin/pemilih/delete/'.$item->id) }}"  style="display: inline;" method="post">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
         
-                         <input type="submit" class="btn btn-danger" value="Delete"  onclick="return confirm('Anda yakin mau menghapus item ini ?')">
+                         <input type="submit" class="btn btn-danger" value="Delete"  onclick="return confirm('Anda Yakin Akan Menghapus Pemilih ini?')">
 
                     </form></td>
                   </tr>
@@ -68,7 +65,6 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 @endsection
 

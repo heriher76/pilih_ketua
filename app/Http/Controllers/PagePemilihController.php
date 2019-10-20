@@ -37,7 +37,8 @@ class PagePemilihController extends Controller
     public $dimensions;
 
     public function __construct()
-    {      $this->middleware('auth');
+    {      
+        $this->middleware('auth');
         //DEFINISIKAN PATH
         $this->path = public_path('pemilih');
         //DEFINISIKAN DIMENSI
@@ -95,78 +96,24 @@ class PagePemilihController extends Controller
        $pemilih->id_fp = $req->id_fp;
        $pemilih->save();
        return redirect('/admin/pemilih');
-
-
-
-
     }
+    public function update(Request $req,$id)
+    {
+        $pemilih = Pemilih::find($id);
 
+        $pemilih->email = $req->email;
+        $pemilih->nama = $req->nama;
+        $pemilih->jenis_kelamin = $req->gender;
+        $pemilih->agama = $req->agama;
+        $pemilih->pekerjaan = $req->pekerjaan;
+        $pemilih->status = $req->status;
+        $pemilih->alamat= $req->alamat;
+        $pemilih->save();
+        return redirect('/admin/pemilih');
+    }
     public function destroy($id)
     {
-    	Pemilih::destroy($id);
-    	return redirect('/admin/pemilih');
+        Pemilih::destroy($id);
+        return redirect('/admin/pemilih');
     }
-   public function update(Request $req,$id)
-    {
-      $pemilih = pemilih::find($id);
-      
-       $this->validate($req, [
-            'foto' => 'image|mimes:jpg,png,jpeg'
-        ]);
-        if (!File::isDirectory($this->path)) {
-            File::makeDirectory($this->path);
-        }
-    
-        $file = $req->file('foto');
-        
-        $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-        
-        Image::make($file)->save($this->path . '/' . $fileName);
-    
-        
-        foreach ($this->dimensions as $row) {
-        
-            $canvas = Image::canvas($row, $row);
-        
-        
-            $resizeImage  = Image::make($file)->resize($row, $row, function($constraint) {
-                $constraint->aspectRatio();
-            });
-      
-        
-            if (!File::isDirectory($this->path . '/' . $row)) {
-        
-                File::makeDirectory($this->path . '/' . $row);
-            }
-          
-        
-            $canvas->insert($resizeImage, 'center');
-        
-            $canvas->save($this->path . '/' . $row . '/' . $fileName);
-        }
-        
-       $pemilih->nik = $req->nik;
-       $pemilih->nama = $req->nama;
-       $pemilih ->jenis_kelamin = $req->gender;
-       $pemilih->agama = $req->agama;
-       $pemilih->pekerjaan = $req->pekerjaan;
-       $pemilih->status = $req->status;
-       $pemilih ->golongan_darah = $req->darah;
-       $pemilih->alamat= $req->alamat;
-       $pemilih->kewarganegaraan = $req->pkn;
-       $pemilih->masa_berlaku = $req->masa;
-       $pemilih->foto = $fileName;
-       $pemilih->tanggal_pembuatan = $req->pembuatan;
-       $pemilih->tempat_pembuatan = $req->tempat;
-       $pemilih->id_rt = $req->rt;
-       $pemilih->id_fp = $req->id_fp;
-       $pemilih->save();
-       return redirect('/admin/pemilih');
-
-
-
-
-    }
-
-   
 }

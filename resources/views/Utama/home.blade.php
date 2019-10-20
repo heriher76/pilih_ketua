@@ -19,20 +19,20 @@
     <div class="row">
       @foreach($calons as $key => $calon)
       @if ($key+1 % 2 !== 0)
-      <div class="col-5 offset-1"  style="text-align: center;">
+      <div class="col-3"  style="text-align: center; margin-bottom: 15px">
         <img src="{{url('calon/'.$calon->foto)}} " class="mx-auto d-block  rounded-circle" width="200px" height="200px">
         <a href="{{ url('info/calon/'.$calon->id) }}" style="color: black;"><h2>{{$calon->nama}}</h2></a>
         <h6 >"{{$calon->visi}}"</h6>
-        <label class="btn btn-dark pilih" for="id">Pilih <input type="radio" hidden=""  name="id_calon" value="{{ $calon->id }}" id="id"></label>
+        <label class="btn btn-dark pilih" for="{{ $calon->id }}">Pilih <input type="radio" hidden="" name="id_calon" value="{{ $calon->id }}" id="{{ $calon->id }}"></label>
       </div>
       @endif
 
       @if ($key+1 % 2 === 0)
-      <div class="col-5" style="text-align: center;">
+      <div class="col-3" style="text-align: center; margin-bottom: 15px">
         <img src="{{url('calon/'.$calon->foto)}} " class="mx-auto d-block  rounded-circle" width="200px" height="200px">
         <h2>{{$calon->nama}}</h2>
         <h6 >"{{$calon->visi}}"</h6>
-        <label class="btn btn-dark pilih" for="id">Pilih <input type="radio" hidden=""  name="id_calon" value="{{ $calon->id }}" id="id"></label>
+        <label class="btn btn-dark pilih" for="{{ $calon->id }}">Pilih <input type="radio" hidden="" name="id_calon" value="{{ $calon->id }}" id="{{ $calon->id }}"></label>
       </div>
       @endif
       @endforeach

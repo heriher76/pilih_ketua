@@ -8,18 +8,21 @@
 
 @section('main')
 <div class="main m-profile" style="height: 100%;">
-  <center><h1>Bakal Calon</h1></center>
+  <div class="mx-auto title" style="width: auto;">
+      <center><p>Bakal Calon</p></center>
+  </div>
+  <br><br>
 	<div class="row p-rt">
       @foreach($calons as $key => $calon)
         @if ($key+1 % 2 !== 0)
-  		  <div class="col-5 offset-1" style="text-align: center;">
-        		<img src="{{url('calon/'.$calon->foto)}}" class="mx-auto d-block  rounded-circle" alt="Cinque Terre" width="200px" height="200px">
+  		  <div class="col-3" style="text-align: center; margin-bottom: 15px">
+        		<img src="{{url('calon/'.$calon->foto)}}" class="mx-auto d-block  rounded-circle" width="200px" height="200px">
             <h2>{{$calon->nama}}</h2> 
             <a href="{{ url('/info/calon/'.$calon->id) }}"><button type="button"  class="btn btn-dark lihat">Lihat Profil</button></a>
         </div>
         @else if($key+1 % 2 === 0)
-        <div class="col-5" style="text-align: center;">
-        		<img src="{{url('calon/'.$calon->foto)}}" class="mx-auto d-block  rounded-circle" alt="Cinque Terre" width="200px" height="200px">
+        <div class="col-3" style="text-align: center; margin-bottom: 15px">
+        		<img src="{{url('calon/'.$calon->foto)}}" class="mx-auto d-block  rounded-circle" width="200px" height="200px">
             <h2 >{{$calon->nama}}</h2>
             <a href="{{ url('/info/calon/'.$calon->id) }}"><button type="button"  class="btn btn-dark lihat">Lihat Profil</button></a>
         </div>

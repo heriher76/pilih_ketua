@@ -51,10 +51,10 @@ class PagecalonController extends Controller
       
       $calon = Calon::orderBy('id','desc')->first();
       
-      $suara = new Suara;
-      $suara->id_calon = $calon->id;
-      $suara->suara = 0;
-      $suara->save();
+      // $suara = new Suara;
+      // $suara->id_calon = $calon->id;
+      // $suara->suara = 0;
+      // $suara->save();
       return redirect('/admin/calon');
     }
 

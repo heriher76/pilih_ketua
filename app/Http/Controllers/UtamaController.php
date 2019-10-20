@@ -19,10 +19,9 @@ class UtamaController extends Controller
         return view('utama.profile',compact('calons'));
     }
     public function rekap(){
-            $rt = suara::where('calon','rt')->get();
-            $rw = suara::where('calon','rw')->get();
-
-    return view('utama.rekapitulasi',compact('rt','rw'));
+        $suara = Suara::all();
+        $totalSuara = \DB::table('suaras')->sum('suara');
+        return view('utama.rekapitulasi',compact('suara', 'totalSuara'));
     }
     public function store(Request $req)
     {
