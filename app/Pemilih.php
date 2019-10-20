@@ -10,7 +10,7 @@ class Pemilih extends Authenticatable
 {
     protected $guard = 'pemilih';
     protected $fillable = [
-       'id', 'email', 'password', 'nik', 'nama', 'jenis_kelamin','golongan_darah','alamat','agama','status','pekerjaan', 'kewarganegaraan','masa berlaku','photo','tanggal_pembuatan','tempat_pembuatan'
+       'id', 'email', 'password', 'nik', 'nama', 'jenis_kelamin','golongan_darah','alamat','agama','status','pekerjaan', 'kewarganegaraan','masa berlaku','photo','tanggal_pembuatan','tempat_pembuatan','selesai_milih'
     ];	
     protected $hidden = ['password', 'remember_token'];
 }

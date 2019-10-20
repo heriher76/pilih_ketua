@@ -19,6 +19,7 @@ Route::prefix('home')->group(function(){
     Route::get('/login', 'Auth\LoginPemilihController@showLoginForm')->name('home.login');
     Route::post('/login', 'Auth\LoginPemilihController@login')->name('home.login.submit');
     Route::get('/', 'PemilihanController@index')->name('home'); //milih calon
+    Route::post('/submit', 'PemilihanController@store')->name('submit_pilihan');
 });
 
 // Route::get('/home/login', 'Auth\LoginPemilihController@login');
