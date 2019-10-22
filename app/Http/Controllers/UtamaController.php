@@ -55,7 +55,6 @@ class UtamaController extends Controller
             $pemilih->update([
                 'bisa_milih' => 1
             ]);
-            Alert::info('Silahkan Login!', 'Untuk Langsung Memilih Calon Pilihan Anda.');
             
             return redirect('/home/login?true=1');
         }else{

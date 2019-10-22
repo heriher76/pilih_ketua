@@ -29,7 +29,7 @@ class LoginPemilihController extends Controller
 
     public function showLoginForm(){
         if (request()->input('true') == 1) {
-            Alert::info('Silahkan Login!', 'Untuk Langsung Milih Calon Pilihan Anda.');
+            Alert::info('Silahkan Login!', 'Untuk Langsung Memilih Calon Pilihan Anda.');
         }
         
         return view('Utama.login');
