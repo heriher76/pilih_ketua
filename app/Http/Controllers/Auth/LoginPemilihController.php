@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use App\Pemilih;
 use App\Logged;
+use Alert;
 
 class LoginPemilihController extends Controller
 {
@@ -25,8 +26,12 @@ class LoginPemilihController extends Controller
     public function __construct(){
         $this->middleware('guest:pemilih');
     }
- 
+
     public function showLoginForm(){
+        if (request()->input('true') == 1) {
+            Alert::info('Silahkan Login!', 'Untuk Langsung Milih Calon Pilihan Anda.');
+        }
+        
         return view('Utama.login');
     }
  

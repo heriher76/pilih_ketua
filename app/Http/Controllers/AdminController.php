@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Suara;
 use App\User;
+use App\Pemilih;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\FeedbackMail;
 
 class AdminController extends Controller
 {
@@ -57,5 +60,16 @@ class AdminController extends Controller
     	User::destroy($id);
 
     	return back();
+    }
+
+    public function sendFeedback($id)
+    {
+        $decodedid = base64_encode($id);
+
+        $pemilih = Pemilih::where('id', $id)->first();
+        $toEmail = $pemilih->email;
+        Mail::to($toEmail)->send(new FeedbackMail($pemilih));
+
+        return back();
     }
 }

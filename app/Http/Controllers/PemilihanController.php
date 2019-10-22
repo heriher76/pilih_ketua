@@ -10,7 +10,7 @@ use App\Suara;
 class PemilihanController extends Controller
 {
 	public function __construct() {
-		$this->middleware('auth:pemilih'); // Here auth is middleware and admin is guard
+		$this->middleware(['auth:pemilih', 'verified']); // Here auth is middleware and admin is guard
 	}
 
     public function index()

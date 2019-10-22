@@ -12,7 +12,8 @@ class AddIdCalonToSuarasTable extends Migration
      * @return void
      */
     public function up()
-    { Schema::table('suaras', function(Blueprint $table){
+    { 
+      Schema::table('suaras', function(Blueprint $table){
         $table->foreign('id_calon') // foreignKey 
               ->references('id') // dari kolom id 
               ->on('calons') // di tabel users

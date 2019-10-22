@@ -49,6 +49,7 @@
                     <td>{{$item->status}}</td>
                     <td>@if ($item->selesai_milih) Selesai @else Belum Milih @endif</td>
                     <td>
+                      <a href="{{ url('/send/send_feedback/'.$item->id) }}"><button class="btn btn-primary">Kirim Link</button></a>
                       <a href="{{ url('/admin/pemilih/edit/'.$item->id) }}"><button class="btn btn-warning">Ubah</button></a>
                       <form action="{{ url('/admin/pemilih/delete/'.$item->id) }}"  style="display: inline;" method="post">
                         {{csrf_field()}}

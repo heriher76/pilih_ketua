@@ -11,7 +11,7 @@ use File;
 class PagePemilihController extends Controller
 {    
     
-     public function index()
+    public function index()
     {		
     	$tabel = pemilih::all();
 

@@ -15,6 +15,15 @@ Route::get('/',function(){
 	return	redirect('/home/login');
 });
 
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
+//send code untuk milih calon
+Route::get('/send/send_feedback/{id}', 'AdminController@sendFeedback');
+//verify code 
+Route::get('/verify/{id}', 'UtamaController@verifyPemilih');
+
 Route::prefix('home')->group(function(){
     Route::get('/login', 'Auth\LoginPemilihController@showLoginForm')->name('home.login');
     Route::post('/login', 'Auth\LoginPemilihController@login')->name('home.login.submit');

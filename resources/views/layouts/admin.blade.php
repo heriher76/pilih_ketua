@@ -68,11 +68,11 @@
 
     <!-- Sidebar -->
     @yield('sidebar')
-   
 
     <div id="content-wrapper">
 
       <div class="container-fluid">
+            @include('sweetalert::alert')
             @yield('content')
       </div>
       <!-- /.container-fluid -->

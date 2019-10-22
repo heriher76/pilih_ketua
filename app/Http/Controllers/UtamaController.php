@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Logged;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UtamaController extends Controller
 {   	
@@ -44,5 +45,21 @@ class UtamaController extends Controller
     {
         $calon = calon::find($id);
         return view('utama.show',compact('calon'));
+    }
+    public function verifyPemilih($id)
+    {
+        $pemilih = Pemilih::where('id', $id)->first();
+        $decodedSignature = base64_decode(request()->signature);
+
+        if ($pemilih->email === $decodedSignature) {
+            $pemilih->update([
+                'bisa_milih' => 1
+            ]);
+            Alert::info('Silahkan Login!', 'Untuk Langsung Memilih Calon Pilihan Anda.');
+            
+            return redirect('/home/login?true=1');
+        }else{
+            return abort(403);
+        }
     }
 }
